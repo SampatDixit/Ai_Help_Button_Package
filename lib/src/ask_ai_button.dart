@@ -7,14 +7,14 @@ class AskAIButton extends StatelessWidget {
   // New optional parameters
   final String buttonText;
   final IconData? icon;
-  final Color? buttonColor;
+  final ButtonStyle? style;
 
   const AskAIButton({
     super.key,
     required this.productName,
     this.buttonText = "Ask anything",
     this.icon,
-    this.buttonColor,
+    this.style,
   });
 
   static const Map<String, String> gemUrls = {
@@ -24,19 +24,19 @@ class AskAIButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle? style = buttonColor != null
-        ? ElevatedButton.styleFrom(backgroundColor: buttonColor)
-        : null;
-
     final Widget button = icon != null
         ? ElevatedButton.icon(
-            style: style,
+            style:
+                style ??
+                ElevatedButton.styleFrom(backgroundColor: Colors.deepOrange),
             onPressed: () async => _openGem(context),
             icon: Icon(icon),
             label: Text(buttonText),
           )
         : ElevatedButton(
-            style: style,
+            style:
+                style ??
+                ElevatedButton.styleFrom(backgroundColor: Colors.deepOrange),
             onPressed: () async => _openGem(context),
             child: Text(buttonText),
           );
