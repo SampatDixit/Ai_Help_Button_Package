@@ -38,7 +38,10 @@ class AskAIButton extends StatelessWidget {
                 style ??
                 ElevatedButton.styleFrom(backgroundColor: Colors.deepOrange),
             onPressed: () async => _openGem(context),
-            child: Text(buttonText),
+            child: DefaultTextStyle.merge(
+              style: const TextStyle(),
+              child: Text(buttonText),
+            ),
           );
 
     return button;
