@@ -1,3 +1,4 @@
+import 'package:bb_analytics/bb_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
 
@@ -8,6 +9,7 @@ class AskAIButton extends StatelessWidget {
   final String buttonText;
   final IconData? icon;
   final ButtonStyle? style;
+  final Map<String, String> analyticsParams;
 
   const AskAIButton({
     super.key,
@@ -15,6 +17,8 @@ class AskAIButton extends StatelessWidget {
     this.buttonText = "Ask anything",
     this.icon,
     this.style,
+    this.analyticsParams =
+        const {}, //this would contain the acadname,uname,plan and the location
   });
 
   static const Map<String, String> gemUrls = {
@@ -56,6 +60,10 @@ class AskAIButton extends StatelessWidget {
       ).showSnackBar(const SnackBar(content: Text("Gem URL not configured")));
       return;
     }
+
+    // Fire analytics only if parameters exist & not empty
+    BBAnalytics bbAnalytics = BBAnalytics(ProductType.DRIVE);
+    bbAnalytics.logEvent("ai_help_button_click", analyticsParams);
 
     // Step 1 → Info popup
     await showDialog(

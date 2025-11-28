@@ -1,4 +1,5 @@
 name: ai_help_button
+publish_to: none
 description: "A new Flutter package project."
 version: 0.0.1
 homepage:
@@ -11,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_custom_tabs: ^2.0.0
+  bb_analytics:
+    path: ../../bb_analytics
 
 dev_dependencies:
   flutter_test:
