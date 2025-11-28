@@ -63,7 +63,7 @@ class AskAIButton extends StatelessWidget {
 
     // Fire analytics only if parameters exist & not empty
     BBAnalytics bbAnalytics = BBAnalytics(ProductType.DRIVE);
-    bbAnalytics.logEvent("ai_help_button_click", analyticsParams);
+    bbAnalytics.logEvent("ai-help-button", analyticsParams);
 
     // Step 1 → Info popup
     await showDialog(
