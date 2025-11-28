@@ -13,8 +13,11 @@ dependencies:
     sdk: flutter
   flutter_custom_tabs: ^2.0.0
   bb_analytics:
-    path: ../../bb_analytics
+    git:
+      url: https://github.com/SampatDixit/bb_analytics_package.git
+      ref: afec792
 
+      
 dev_dependencies:
   flutter_test:
     sdk: flutter
